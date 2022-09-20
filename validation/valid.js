@@ -6,6 +6,7 @@ const validation = Joi.object({
     phone:Joi.number().required().min(100000000).max(999999999),
     password:Joi.string().pattern(new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$')).required(),
     status: Joi.boolean().default(true),
+    role: Joi.string().valid('admin','manager','user')
 })
 
 const userSignUp = async(req, res, next) => {

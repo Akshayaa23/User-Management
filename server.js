@@ -2,6 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
+dotenv.config()
+
+
 const userRoute = require('./routes/userRoute')
 
 mongoose.connect('mongodb+srv://Akshaya:Akshaya.123@cluster0.14huv.mongodb.net/testdb?retryWrites=true&w=majority',{useNewUrlParser: true,useUnifiedTopology: true})

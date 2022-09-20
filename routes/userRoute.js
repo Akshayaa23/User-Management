@@ -3,9 +3,10 @@ const router = express.Router()
 
 const userController = require('../controllers/usercontroller')
 const validateUser = require('../validation/valid')
+const authJwt= require('../middleware/authJwt')
 
 router.post('/register', validateUser.userSignUp,userController.signup)
 router.post('/login',validateUser.userSignin,userController.signin)
-router.get('/getUser', userController.getUser)
+router.get('/getUser', authJwt.isAdmin,userController.getUser)
 
 module.exports = router;
